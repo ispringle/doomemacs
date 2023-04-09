@@ -87,7 +87,12 @@ derivative.")
                 :desc "next" [tab] #'corfu-next
                 :desc "previous" [backtab] #'corfu-previous
                 :desc "next" "TAB" #'corfu-next
-                :desc "previous" "S-TAB" #'corfu-previous))))
+                :desc "previous" "S-TAB" #'corfu-previous)))
+
+  (when (modulep! :editor evil)
+    (evil-collection-define-key 'insert 'corfu-map
+      (kbd "RET") #'corfu-insert
+      [return] #'corfu-insert)))
 
 ;; Taken from corfu's README.
 ;; TODO: extend this to other completion front-ends, mainly helm and ido, since

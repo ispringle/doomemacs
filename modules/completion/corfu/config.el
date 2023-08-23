@@ -70,7 +70,7 @@
             (lambda () (add-to-list 'completion-at-point-functions #'cape-file))))
 
 (use-package! yasnippet-capf
-  :commands yasnippet-capf
+  :after corfu
   :config
   (add-hook 'yas-minor-mode-hook
             (lambda () (add-to-list 'completion-at-point-functions #'yasnippet-capf))))

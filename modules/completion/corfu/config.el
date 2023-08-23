@@ -67,7 +67,9 @@
   :after corfu
   :config
   (add-hook 'prog-mode-hook
-            (lambda () (add-to-list 'completion-at-point-functions #'cape-file))))
+            (lambda () (add-to-list 'completion-at-point-functions #'cape-file)))
+  (add-hook! (markdown-mode org-mode)
+    (lambda () (add-to-list 'completion-at-point-functions #'cape-elisp-block))))
 
 (use-package! yasnippet-capf
   :after corfu

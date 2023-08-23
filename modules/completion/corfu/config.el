@@ -112,10 +112,10 @@ This fixes the cropping due to scaling issues."
     :around #'kind-icon-formatted
     (let* ((text (funcall orig kind))
            (image (get-text-property 1 'display text)))
-      (when (imagep image)
-          (setf (image-property image :scale) 1)
-          (put-text-property 0 1 'display '(space :width (0)) text)
-          (put-text-property 2 3 'display '(space :width (0)) text))
+      (when (eq (car-safe image) 'image)
+        (setf (image-property image :scale) 1)
+        (put-text-property 0 1 'display '(space :width (0)) text)
+        (put-text-property 2 3 'display '(space :width (0)) text))
       text)))
 
 (use-package! corfu-terminal

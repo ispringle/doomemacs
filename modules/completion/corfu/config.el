@@ -47,7 +47,7 @@
                 "TAB" #'corfu-next
                 "S-TAB" #'corfu-previous)))
 
-  (when (modulep! :editor evil)
+  (after! evil-collection-corfu
     (evil-collection-define-key 'insert 'corfu-map
       (kbd "RET") #'corfu-insert
       [return] #'corfu-insert))

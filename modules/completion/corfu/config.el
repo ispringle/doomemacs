@@ -4,6 +4,7 @@
 ;;; Packages
 (use-package! corfu
   :hook (doom-first-buffer . global-corfu-mode)
+  :hook (org-mode . corfu-mode)
   :init
   ;; Auto-completion settings, must be set before calling `global-corfu-mode'.
   ;; Due to lazy-loading, setting them in config.el works too.

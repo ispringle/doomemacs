@@ -72,6 +72,7 @@
   :config
   (add-hook! prog-mode (+add-capf! #'cape-file))
   (add-hook! (org-mode markdown-mode) (+add-capf! #'cape-elisp-block))
+  (advice-add #'lsp-completion-at-point :around #'cape-wrap-noninterruptible))
 
 (use-package! yasnippet-capf
   :after corfu

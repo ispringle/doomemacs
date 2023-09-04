@@ -64,13 +64,14 @@
     (map! :map 'corfu-map "s-<down>" #'corfu-move-to-minibuffer
           (:when (modulep! :editor evil) "s-j" #'corfu-move-to-minibuffer))))
 
+(defmacro +add-capf! (capf)
+  "Create sexp to add CAPF to the list of CAPFs."
+  `(add-to-list 'completion-at-point-functions ,capf))
 (use-package! cape
   :after corfu
   :config
-  (add-hook 'prog-mode-hook
-            (lambda () (add-to-list 'completion-at-point-functions #'cape-file)))
-  (add-hook! (markdown-mode org-mode)
-    (lambda () (add-to-list 'completion-at-point-functions #'cape-elisp-block))))
+  (add-hook! prog-mode (+add-capf! #'cape-file))
+  (add-hook! (org-mode markdown-mode) (+add-capf! #'cape-elisp-block))
 
 (use-package! yasnippet-capf
   :after corfu

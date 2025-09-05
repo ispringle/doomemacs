@@ -175,8 +175,8 @@
   :init
   (set-tree-sitter! 'html-mode 'html-ts-mode
     '((html :url "https://github.com/tree-sitter/tree-sitter-html"
-            :rev "v0.23.2"
-            :commit "5a5ca8551a179998360b4a4ca2c0f366a35acc03"))))
+            :rev "v0.23.0"
+            :commit "14bdaf0da9e26e2de9b30178c2242539d2b0b285"))))
 
 
 (use-package! mhtml-ts-mode  ; 31+ only
